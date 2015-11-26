@@ -4,5 +4,12 @@
   Notice: <%= flash[:notice] %>
 <% end %>
 
-<pre>Dog Data: <%= @dogs.to_s %></pre>
+<ul>
+  <% @dogs.each do |dog| %>
+    <li>
+      Name: <%= dog.name %>
+      Owner: <%= dog.owner.fname if dog.owner %>
+    </li>
+  <% end %>
+</ul>
 <a href="/dogs/new">New Dog!</a>

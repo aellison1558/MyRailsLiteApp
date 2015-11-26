@@ -11,8 +11,13 @@
   </label>
 
   <label>Owner
-    <input type="text" name="dog[owner]" value="<%= @dog.owner %>">
+    <select class="" name="dog[owner_id]">
+        <% Human.all.each do |human| %>
+          <option value='<%= human.id %>'><%= human.fname %></option>
+        <% end %>
+
+    </select>
   </label>
 
-  <input type="submit">
+  <input type="submit" value="ADD DOG!">
 </form>

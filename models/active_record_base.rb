@@ -2,8 +2,6 @@ require_relative 'db_connection'
 require 'active_support/inflector'
 require 'active_support/inflector'
 require 'byebug'
-# NB: the attr_accessor we wrote in phase 0 is NOT used in the rest
-# of this project. It was only a warm up.
 
 # Phase IIIa
 class AssocOptions
@@ -257,13 +255,13 @@ class SQLObject
   end
 
   def save
-    self.class.validations.each do |validation|
-      self.class.send(validation)
-    end
-    self.class.validations_of_variables.each do |validation, variables|
-      vars = variables.map {|variable| send(variable)}
-      self.class.send(validation, vars)
-    end
+    # self.class.validations.each do |validation|
+    #   self.class.send(validation)
+    # end
+    # self.class.validations_of_variables.each do |validation, variables|
+    #   vars = variables.map {|variable| send(variable)}
+    #   self.class.send(validation, vars)
+    # end
     if id
       update
     else
@@ -271,7 +269,7 @@ class SQLObject
     end
   end
 
-  def where(params)
+  def self.where(params)
     where_statement = []
     params.each do |col, value|
       current_value =  value.is_a?(String) ? "'#{value}'" : value

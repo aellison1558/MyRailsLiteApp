@@ -3,6 +3,7 @@ require_relative '../controllers/controller_base'
 require_relative '../controllers/router'
 require_relative '../controllers/static_assets'
 require_relative '../controllers/exception_handler'
+require_relative '../controllers/dogs_controller'
 
 router = Router.new
 router.draw do
@@ -20,7 +21,7 @@ my_app = Proc.new do |env|
 end
 
 app = Rack::Builder.new do
-  use ExceptionHandler
+  # use ExceptionHandler
   use StaticAssets
   run my_app
 end.to_app
