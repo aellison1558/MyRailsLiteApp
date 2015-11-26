@@ -8,4 +8,5 @@ class Dog < SQLObject
     foreign_key: :owner_id,
     primary_key: :id
 
+    
 end

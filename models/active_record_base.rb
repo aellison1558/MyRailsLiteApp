@@ -3,6 +3,8 @@ require 'active_support/inflector'
 require 'active_support/inflector'
 require 'byebug'
 
+DBConnection.instance
+
 # Phase IIIa
 class AssocOptions
   attr_accessor(

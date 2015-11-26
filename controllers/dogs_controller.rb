@@ -12,7 +12,7 @@ class DogsController < ControllerBase
       flash[:notice] = "Saved dog successfully"
       redirect_to "/dogs"
     else
-      flash.now[:errors] = @dog.errors
+      flash.now[:errors] = @dog.name.present? ? ["Must have an owner"] : ["Name can't be blank"]
       render :new
     end
   end
