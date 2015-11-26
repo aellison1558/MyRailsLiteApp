@@ -16,7 +16,7 @@ class DBConnection
 
   def self.reset
     commands = [
-      "rm '#{DOGS_DB_FILE}'",
+      # "rm '#{DOGS_DB_FILE}'",
       "cat '#{DOGS_SQL_FILE}' | sqlite3 '#{DOGS_DB_FILE}'"
     ]
 
